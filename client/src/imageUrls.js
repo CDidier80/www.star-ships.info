@@ -37,5 +37,4 @@ const imageUrls = [
     `url("https://static.wikia.nocookie.net/starwars/images/6/66/Nimbus-class_V-wing_TFOWM.png/revision/latest?cb=20190629212809")`
 ]
 
-
 export default imageUrls 
