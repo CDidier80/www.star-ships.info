@@ -10,7 +10,7 @@ const apiProxy = createProxyMiddleware({
   changeOrigin: true, // for vhosted sites, changes host header to match to target's host
   logLevel: 'debug',
 });
-const PORT = process.env.PORT || 3007
+const PORT = process.env.PORT || 3000
 const app = express()
 
 app.use(logger('dev'))
@@ -24,6 +24,7 @@ app.use('/?page=2', apiProxy)
 app.use('/?page=3', apiProxy)
 app.use('/?page=4', apiProxy)
 app.listen(PORT, async () => {
+
   try {
     console.log(`App listening on port: ${PORT}`)
   } catch (error) {

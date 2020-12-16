@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import "../styles/STARWARS/starwarsfont.css"
 import imageUrls from '../imageUrls';
 import ApiClient from '../Services/ApiClient'
@@ -8,7 +8,7 @@ let homeStyles = {
   homepageWrapper: {
     overflowX: "hidden",
     overflowY: "hidden",
-    backgroundColor: "black"
+    backgroundColor: "black",
   },
 
   loadingWrapper: {
@@ -20,13 +20,13 @@ let homeStyles = {
   },
 
   loading: {
-    color: "black",
-    fontSize: "70px",
     position: "absolute", 
-    fontFamily: 'Bebas Neue',
     left: "50%", 
     top: "50%", 
     transform: "translate(-50%, -50%)", 
+    color: "black",
+    fontSize: "70px",
+    fontFamily: 'Bebas Neue',
     textShadow: "0 0 10px white, 0 0 20px #faffa3, 0 0 30px #f9ff8f, 0 0 40px #f9ff80, 0 0 50px #f8ff6b, 0 0 60px #f7ff61, 0 0 70px #f6ff4d",
   },
 
@@ -44,27 +44,27 @@ let homeStyles = {
 
   title: {
     margin: "0",
-    color: "yellow", 
     paddingTop: "10px", 
+    color: "yellow"
   },
 
   shipGrid: {
     position: "relative",
-    "top": "28px",
-    "display": "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
-    "gridGap": "1.8rem",
-    width: "90%",
     margin: "auto",
+    width: "90%",
+    top: "28px",
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
+    gridGap: "1.8rem",
     backgroundColor: "rgba(0,0,0,.5)",
-    padding: "10px"
+    padding: "10px",
+    marginBottom: "28px"
   },
 
   shipSquares: {
     position: "relative",
     width: "150px",
     height: "150px",
-    "backgroundColor": 'green',
     padding: "4px",
     overflow: "hidden",
     textAlign: "center",
@@ -77,20 +77,21 @@ let homeStyles = {
   },
 
   Links: {
-    color: "white",
-    backgroundColor: "rgba(0,0,0,.3)",
-    "textDecoration": "none",
-    fontSize: "16px",
     display: "block",
-    width: "100%",
     position: "absolute",
     left: "50%",
     transform: "translate(-50%)",
-    margin: "0 auto"
+    width: "100%",
+    margin: "0 auto",
+    fontSize: "16px",
+    color: "white",
+    backgroundColor: "rgba(0,0,0,.3)",
+    textDecoration: "none",
   },
 
   video: {
     height: "75vh",
+    maxWidth: "1350px",
     position: 'fixed',
     top: "130px", 
     opacity: "1",
@@ -99,8 +100,7 @@ let homeStyles = {
 
 }
 
-
-const Home = (props) => {
+const HomePage = (props) => {
 
   const [starships, updateStarships] = useState([])
   const [pageIsLoaded, changeLoadedBoolean] = useState(false)
@@ -115,7 +115,7 @@ const Home = (props) => {
       const combinedShipArray = [...responsePage1.data.results, ...responsePage2.data.results,
         ...responsePage3.data.results, ...responsePage4.data.results
       ]
-      console.log(combinedShipArray)
+      console.log("combined ship array: ",combinedShipArray)
       updateStarships(combinedShipArray)
       if (!pageIsLoaded) {
         changeLoadedBoolean(true)
@@ -123,18 +123,15 @@ const Home = (props) => {
     }
     getShips()
     console.log(pageIsLoaded)
-
   }, [pageIsLoaded]) 
-
 
   const starshipClick = (propsToPass) => {
     console.log(propsToPass)
     props.history.push("/starships", propsToPass)
   }
 
-  
   if(pageIsLoaded) {
-    return(
+    return (
 
     <div className="homepageWrapper" style={homeStyles.homepageWrapper}>
       <div className="navBar" style={homeStyles.navBar}>
@@ -156,8 +153,8 @@ const Home = (props) => {
           })}
       </div>
     </div>
-  )
 
+  )
 
 } else {
     return (
@@ -166,11 +163,6 @@ const Home = (props) => {
       </div>
     )
   }
-
-
-
-
 }
 
-
-  export default Home
+  export default HomePage
