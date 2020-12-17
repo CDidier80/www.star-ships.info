@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import "../styles/STARWARS/starwarsfont.css"
 import imageUrls from '../imageUrls';
-import ApiClient from '../Services/ApiClient'
 import video from "../starwarsmontage.mp4"
+import falcon from "../styles/falconBlurred.png"
+console.log(falcon)
+const { innerHeight, innerWidth } = window 
+let hyperspaceDimension = innerHeight > innerWidth ? innerHeight : innerWidth
+let halfHSD = hyperspaceDimension / 2
+let leftAdjustment = innerWidth / 2 * -1
+let topAdjustment = innerHeight / 2 * -1
 
 let homeStyles = {
   homepageWrapper: {
@@ -17,17 +23,9 @@ let homeStyles = {
     width: "100vw", 
     height: "100vh",
     backgroundColor: "black",
-  },
-
-  loading: {
-    position: "absolute", 
-    left: "50%", 
-    top: "50%", 
-    transform: "translate(-50%, -50%)", 
-    color: "black",
-    fontSize: "70px",
-    fontFamily: 'Bebas Neue',
-    textShadow: "0 0 10px white, 0 0 20px #faffa3, 0 0 30px #f9ff8f, 0 0 40px #f9ff80, 0 0 50px #f8ff6b, 0 0 60px #f7ff61, 0 0 70px #f6ff4d",
+    textAlign: "center",
+    opacity: "1"
+    
   },
 
   navBar: {
@@ -100,37 +98,93 @@ let homeStyles = {
 
 }
 
+let loadingStyles = {
+
+  loadingTextWrapper: {
+    position: "absolute", 
+    zIndex: "100",
+    left: "50%", 
+    top: "50%", 
+    width: "30vw",
+    height: "10vw",
+    transform: "translate(-50%, -50%)", 
+    animation: "pulse 2s infinite",
+    WebkitAnimation: "pulse 2s infinite",
+    backgroundImage: `url(${falcon})`,
+    backgroundSize: "cover",
+    animation: "pulse 2s infinite",
+    WebkitAnimation: "pulse 2s infinite",
+    
+  },
+  loading: {
+    // position: "absolute", 
+    lineHeight: "10vw",
+    zIndex: "100",
+    color: "#B3FCFF",
+    fontSize: `4vw`,
+    fontFamily: 'Bebas Neue',
+    textAlign: "center",
+    textShadow: "0 0 5px rgba(202,228,225,0.92), 0 0 11px rgba(30,132,242,0.52), 0 0 19px rgba(30,132,242,0.92), 0 0 31px rgba(30,132,242,0.78), 0 0 51px rgba(30,132,242,0.92)",
+
+  },
+
+  wrap: {
+    position: "absolute",
+    width: hyperspaceDimension,
+    height: hyperspaceDimension,
+    left: leftAdjustment,
+    top: topAdjustment
+  },
+  
+  wallRight: {
+    transform: `rotateY(90deg) translateZ(${halfHSD}px)`,
+    WebkitTransform: `rotateY(90deg) translateZ(${halfHSD}px)`,
+    MozTransform:`rotateY(90deg) translateZ(${halfHSD}px)`,
+    MsTransform:`rotateY(90deg) translateZ(${halfHSD}px)`,
+    OTransform:`rotateY(90deg) translateZ(${halfHSD}px)`,
+  },
+
+  wallLeft: {
+    transform: `rotateY(-90deg) translateZ(${halfHSD}px)`,
+    WebkitTransform: `rotateY(-90deg) translateZ(${halfHSD}px)`,
+    MozTransform:`rotateY(-90deg) translateZ(${halfHSD}px)`,
+    MsTransform:`rotateY(-90deg) translateZ(${halfHSD}px)`,
+    OTransform:`rotateY(-90deg) translateZ(${halfHSD}px)`,
+  },
+
+  wallTop: {
+    transform: `rotateX(90deg) translateZ(${halfHSD}px)`,
+    WebkitTransform: `rotateX(90deg) translateZ(${halfHSD}px)`,
+    MozTransform:`rotateX(90deg) translateZ(${halfHSD}px)`,
+    MsTransform:`rotateX(90deg) translateZ(${halfHSD}px)`,
+    OTransform:`rotateX(90deg) translateZ(${halfHSD}px)`,
+  },
+
+  wallBottom: {
+    transform: `rotateX(-90deg) translateZ(${halfHSD}px)`,
+    WebkitTransform: `rotateX(-90deg) translateZ(${halfHSD}px)`,
+    MozTransform:`rotateX(-90deg) translateZ(${halfHSD}px)`,
+    MsTransform:`rotateX(-90deg) translateZ(${halfHSD}px)`,
+    OTransform:`rotateX(-90deg) translateZ(${halfHSD}px)`,
+  },
+
+  wallBack: {
+    transform: `rotateX(180deg) translateZ(${halfHSD}px)`,
+    WebkitTransform: `rotateX(180deg) translateZ(${halfHSD}px)`,
+    MozTransform:`rotateX(180deg) translateZ(${halfHSD}px)`,
+    MsTransform:`rotateX(180deg) translateZ(${halfHSD}px)`,
+    OTransform:`rotateX(180deg) translateZ(${halfHSD}px)`,
+  }
+}
+
 const HomePage = (props) => {
-
-  const [starships, updateStarships] = useState([])
-  const [pageIsLoaded, changeLoadedBoolean] = useState(false)
-
-  useEffect(() => {
-    console.log("useEffect reached")
-    const getShips = async () => {
-      const responsePage1 = await ApiClient.get("/")
-      const responsePage2 = await ApiClient.get("/?page=2")
-      const responsePage3 = await ApiClient.get("/?page=3")
-      const responsePage4 = await ApiClient.get("/?page=4")
-      const combinedShipArray = [...responsePage1.data.results, ...responsePage2.data.results,
-        ...responsePage3.data.results, ...responsePage4.data.results
-      ]
-      console.log("combined ship array: ",combinedShipArray)
-      updateStarships(combinedShipArray)
-      if (!pageIsLoaded) {
-        changeLoadedBoolean(true)
-      }
-    }
-    getShips()
-    console.log(pageIsLoaded)
-  }, [pageIsLoaded]) 
 
   const starshipClick = (propsToPass) => {
     console.log(propsToPass)
     props.history.push("/starships", propsToPass)
   }
 
-  if(pageIsLoaded) {
+  if(props.pageIsLoaded) {
     return (
 
     <div className="homepageWrapper" style={homeStyles.homepageWrapper}>
@@ -139,7 +193,8 @@ const HomePage = (props) => {
       </div>
       <video style={homeStyles.video} autoPlay loop muted src={video} type="video/mp4"> Your browser does not support the video tag.</video>
       <div style={homeStyles.shipGrid}> 
-          {starships.map((starship, index) => { 
+          { props.starships &&
+          props.starships.map((starship, index) => { 
             let propsToPass = {
               imageNum: index,
               starship: starship
@@ -158,8 +213,29 @@ const HomePage = (props) => {
 
 } else {
     return (
-      <div style={homeStyles.loadingWrapper}>
-        <div style={homeStyles.loading}>Loading...</div>
+      <div> 
+        <div style={loadingStyles.loadingTextWrapper}>
+          <div className="loadingText" style={loadingStyles.loading}>Loading</div>
+        </div>
+        
+        <div className="homepageWrapper" style={homeStyles.loadingWrapper}>
+          <div className="scene">
+            <div className="wrap" style={loadingStyles.wrap}>
+                <div className="wall wall-right" style={loadingStyles.wallRight}></div>
+                <div className="wall wall-left" style={loadingStyles.wallLeft}></div>   
+                <div className="wall wall-top" style={loadingStyles.wallTop}></div>
+                <div className="wall wall-bottom" style={loadingStyles.wallBottom}></div> 
+                <div className="wall wall-back" style={loadingStyles.wallBack}></div>    
+            </div>
+            <div className="wrap" style={loadingStyles.wrap}>
+                <div className="wall wall-right"   style={loadingStyles.wallRight}></div>
+                <div className="wall wall-left"   style={loadingStyles.wallLeft}></div>   
+                <div className="wall wall-top"    style={loadingStyles.wallTop}></div>
+                <div className="wall wall-bottom" style={loadingStyles.wallBottom}></div>   
+                <div className="wall wall-back"   style={loadingStyles.wallBack}></div>    
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
