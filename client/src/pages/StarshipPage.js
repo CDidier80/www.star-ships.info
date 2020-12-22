@@ -12,14 +12,24 @@ function StarshipPage (props) {
     "https://wallpaperaccess.com/full/1801954.jpg",
     "https://cdn.wallpapersafari.com/86/95/w4cHKy.jpg",
     "https://cutewallpaper.org/21/star-wars-space-wallpaper/ArtStation-Star-Wars-Batllefront-II-1920x1080-Wallpapers-.jpg"
-
-
 ]
-  const randomIndex= Math.floor(Math.random() * backgroundImages.length)
+
+  const randomIndex = Math.floor(Math.random() * backgroundImages.length)
   const {name, manufacturer, cost_in_credits, length, crew, passengers, starship_class} = props.history.location.state.starship
+
+  const cost = cost_in_credits.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  
+  const infoArray = [["Starship Class", starship_class], ["Crew Size", crew], ["Passenger Capacity", passengers],
+                    ["Production Cost (credits)", cost], ["Manufacturer", manufacturer], ["Longest Dimension (m)", length]]
   const divMultiplier = name.length * 24
+  const { innerHeight, innerWidth } = window 
+  const iwi = String(innerWidth)
+
+  let result = innerWidth < 1000 ? "4.5vw" : "20px"
+  console.log(typeof iwi)
 
   let starshipStyles = {
+
     appContentWrapper: {
       margin: "0 auto",
       width: "100%",
@@ -28,27 +38,37 @@ function StarshipPage (props) {
       overflowY: "hidden",
       backgroundSize: "cover",
       backgroundPosition: "center",
-      backgroundRepeat: "no-repeat"
-
+      backgroundRepeat: "no-repeat",
+      position: "relative"
     },
 
-    returnLink: {
-      position: "absolute", 
-      fontSize: "22px", 
-      left: "22px", 
-      top: "22px",
-      color: "black",
-      textShadow: "0 0 1px white, 0 0 2px #faffa3, 0 0 4px #f8ff6b",
-      textDecoration: "none", 
-      fontFamily: 'Bebas Neue',
+    pageBackgroundImg : {
+      position: "absolute",
+      minWidth: "100vw", 
+      minHeight: "100vh",
+      zIndex: "-100",
+      left: "0",
+      right: "0",
+      bottom: "0",
+      top: "0",
+      overflowX: "hidden", 
+      overflowY: "visible", 
+      backgroundImage: `url(${backgroundImages[randomIndex]})`,
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover"
     },
 
     picture: {
       margin: "0 auto",
-      minHeight: "400px", 
-      minWidth: "400px",
-      maxHeight: "600px", 
-      maxWidth: "600px",
+      minHeight: "400px",
+      minWidth: "265px",
+      maxHeight: "600px",
+      // maxWidth: "90vw",
+      // maxWidth: "600px",
+      width: "78%",
+      maxWidth: "1100px",
+      // paddingTop: "15%",
       marginTop: "2vh",
       marginBottom: "2vh",
       boxShadow: "0px 0px 15px white",
@@ -57,20 +77,9 @@ function StarshipPage (props) {
       backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
-      border: "1px white solid"
+      border: "1px white solid",
+      borderRadius: "5px"
     }, 
-
-    detailWrapper: {
-      margin: "0 auto",
-      width: "75%",
-      backgroundColor: "rgba(0,0,0,.8)",
-      padding: "13px",
-      paddingTop: "4px",
-      borderRadius: "5px", 
-      display: "grid", 
-      gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
-      "gridGap": "1.8rem",
-    },
 
     shipName: {
       margin: "0 auto",
@@ -87,57 +96,27 @@ function StarshipPage (props) {
       textShadow: "0 0 10px white, 0 0 20px #faffa3, 0 0 30px #f9ff8f, 0 0 40px #f9ff80, 0 0 50px #f8ff6b, 0 0 60px #f7ff61, 0 0 70px #f6ff4d"
     },
 
-    shipDetail: {
-      color: "black",
-      fontSize: "20px",
-      alignText: "left",
-      borderBottom: "1px yellow solid", 
-      textShadow: "0 0 1px white, 0 0 2px #faffa3, 0 0 4px #f8ff6b"
-    }, 
-    
-    dataPoint: {
-      color: "white",
-      fontSize: "16px",
-      alignText: "left",
-    }
+
   }
-  const styleForWrapper = {...starshipStyles.appContentWrapper, backgroundImage: `url(${backgroundImages[randomIndex]})`}
 
   return (
-    <main className="appContentWrapper" style={styleForWrapper}>
-      <NavLink style={starshipStyles.returnLink} to="/">Return</NavLink>
-      <div className="shipName" style={starshipStyles.shipName}>{name}</div>
-      <div style={starshipStyles.picture}></div>
+    <div style={starshipStyles.pageBackgroundImg}>
+      <main className="appContentWrapper" style={starshipStyles.appContentWrapper}>
+        <NavLink className="returnLink" style={starshipStyles.returnLink} to="/">Return</NavLink>
+        <div className="shipName" style={starshipStyles.shipName}>{name}</div>
+        <div style={starshipStyles.picture}></div>
+        <div className="detailWrapper">
+          {infoArray.map((element, index) => (        
+              <div key={index} className="textWrapper" style={starshipStyles.textWrapper}>
+                <h3 className='shipDetail'>{element[0]}</h3>
+                <p className="dataPoint">{element[1]}</p>
+              </div>
+              )) 
+          }
+        </div>
+      </main>
+    </div>
 
-      <div style={starshipStyles.detailWrapper}>
-        <div className="textWrapper" style={starshipStyles.textWrapper}>
-          <h3 style={starshipStyles.shipDetail}>Starship Class</h3>
-          <p style={starshipStyles.dataPoint}>{starship_class}</p>
-        </div>
-        <div className="textWrapper" style={starshipStyles.textWrapper}>
-          <h3 style={starshipStyles.shipDetail}>Crew Size</h3>         
-          <p style={starshipStyles.dataPoint}>{crew}</p>
-        </div>
-        <div className="textWrapper" style={starshipStyles.textWrapper}>
-          <h3 style={starshipStyles.shipDetail}>Passenger Capacity</h3>         
-          <p style={starshipStyles.dataPoint}>{passengers}</p>
-        </div>
-        <div className="textWrapper" style={starshipStyles.textWrapper}>
-          <h3 style={starshipStyles.shipDetail}>Production Cost</h3>          
-          <p style={starshipStyles.dataPoint}>{cost_in_credits}</p>
-        </div>
-        <div className="textWrapper" style={starshipStyles.textWrapper}>
-          <h3 style={starshipStyles.shipDetail}>Manufacturer</h3>        
-          <p style={starshipStyles.dataPoint}>{manufacturer}</p>
-        </div>
-        <div className="textWrapper" style={starshipStyles.textWrapper}>
-          <h3 style={starshipStyles.shipDetail}>Longest Dimension</h3>        
-          <p style={starshipStyles.dataPoint}>{length}</p>
-        </div>
-      </div>
-
-  
-    </main>
   )
 }
 
