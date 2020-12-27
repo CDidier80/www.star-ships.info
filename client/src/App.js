@@ -4,7 +4,7 @@ import ApiClient from './Services/ApiClient'
 import './styles/Loading.css';
 import HomePage from './pages/HomePage'
 import StarshipPage from './pages/StarshipPage.js'
-import { response } from 'express';
+
 
 const App = () => {
 
@@ -36,8 +36,12 @@ const App = () => {
       //   ...responsePage4.data.results
       // ]
 
-      responsePage1.concat(responsePage2, responsePage3, responsePage4)
-      loadStarships(responsePage1)
+      const combinedArray = responsePage1.data.results.concat(
+        responsePage2.data.results, 
+        responsePage3.data.results, 
+        responsePage4.data.results
+        )
+      loadStarships(combinedArray)
       if (!pageIsLoaded) {
         changeLoadedBoolean(true)
         document.body.classList.add("loaded")
