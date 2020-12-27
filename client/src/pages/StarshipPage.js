@@ -1,32 +1,32 @@
-import React, { Component, useState, useEffect } from 'react'
-import "../styles/STARWARS/starwarsfont.css"
+import React from 'react'
 import imageUrls from '../imageUrls';
 import { NavLink } from 'react-router-dom';
-
+import "../styles/STARWARS/starwarsfont.css"
+import backgroundImages from "../imageUrls"
 
 function StarshipPage (props) {
-  console.log("props of Starship Page: ", props)
-  const backgroundImages = [
-    "https://wallpaperaccess.com/full/2137907.jpg", 
-    "https://wallpaperaccess.com/full/1801913.jpg",
-    "https://wallpaperaccess.com/full/1801954.jpg",
-    "https://cdn.wallpapersafari.com/86/95/w4cHKy.jpg",
-    "https://cutewallpaper.org/21/star-wars-space-wallpaper/ArtStation-Star-Wars-Batllefront-II-1920x1080-Wallpapers-.jpg"
-]
 
   const randomIndex = Math.floor(Math.random() * backgroundImages.length)
-  const {name, manufacturer, cost_in_credits, length, crew, passengers, starship_class} = props.history.location.state.starship
-
+  const { state } = props.history.location
+  const {name, manufacturer, cost_in_credits, length, crew, passengers, starship_class } = state.starship
+  const { imageNum } = state
   const cost = cost_in_credits.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
   
-  const infoArray = [["Starship Class", starship_class], ["Crew Size", crew], ["Passenger Capacity", passengers],
-                    ["Production Cost (credits)", cost], ["Manufacturer", manufacturer], ["Longest Dimension (m)", length]]
-  const divMultiplier = name.length * 24
-  const { innerHeight, innerWidth } = window 
-  const iwi = String(innerWidth)
+  const infoArray = [
+    ["Starship Class", starship_class], 
+    ["Crew Size", crew], 
+    ["Passenger Capacity", passengers], 
+    ["Production Cost (credits)", cost], 
+    ["Manufacturer", manufacturer], 
+    ["Longest Dimension (m)", length]
+  ]
 
-  let result = innerWidth < 1000 ? "4.5vw" : "20px"
-  console.log(typeof iwi)
+  const divMultiplier = name.length * 24
+  // const { innerWidth } = window 
+  // const iwi = String(innerWidth)
+
+  // let result = innerWidth < 1000 ? "4.5vw" : "20px"
+  // console.log(typeof iwi)
 
   let starshipStyles = {
 
@@ -64,17 +64,13 @@ function StarshipPage (props) {
       minHeight: "400px",
       minWidth: "265px",
       maxHeight: "600px",
-      // maxWidth: "90vw",
-      // maxWidth: "600px",
       width: "78%",
       maxWidth: "1100px",
-      // paddingTop: "15%",
       marginTop: "2vh",
       marginBottom: "2vh",
       boxShadow: "0px 0px 15px white",
       backgroundImage: `${imageUrls[props.history.location.state.imageNum]}`,
       backgroundSize: "cover", 
-      backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       border: "1px white solid",
