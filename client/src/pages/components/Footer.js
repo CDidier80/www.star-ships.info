@@ -12,12 +12,12 @@ const Footer = () => {
             <div className="outLinksWrapper">
             <div className="apiWrapper">
                 <p className="linkSentence">Powered by 
-                    <a className="apiLink" href="https://swapi.dev/"> SWAPI API</a>
+                    <a className="apiLink" href="https://swapi.dev/" target="blank"> SWAPI API</a>
                 </p>
             </div>
             <div className="githubWrapper">
                 <p className="linkSentence">View project details on 
-                    <a className="githubLink" href="https://github.com/CDidier80/react-ajax-swapi"> Github</a>
+                    <a className="githubLink" href="https://github.com/CDidier80/react-ajax-swapi" target="blank"> Github</a>
                 </p>
             </div>
             </div>
