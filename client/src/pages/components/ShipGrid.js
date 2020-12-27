@@ -4,12 +4,10 @@ import { imageUrls } from '../../imageUrls';
 const ShipGrid = (props) => {
 
     const starshipClick = (propsToPass) => {
-        console.log(propsToPass)
         props.history.push("/starships", propsToPass)
         }
 
     const nameReformat = (name) => {
-        console.log("function reached")
         const splitName = name.split(" ")
         let titleCasedString = ""
         splitName.map((word) => {
@@ -21,7 +19,6 @@ const ShipGrid = (props) => {
             const titleCasedWord = word.replace(word.charAt(0), word.charAt(0).toUpperCase())
             titleCasedString += titleCasedWord + " "
         })
-        console.log("title cased string", titleCasedString)
         return titleCasedString
     }
 
