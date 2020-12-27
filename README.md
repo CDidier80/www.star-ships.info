@@ -26,7 +26,7 @@
 Deployed & Complete
 
 ### How to get started: 
-Visit https://www.star-ships.info! Click on various starships to view their details page.
+Visit http://www.star-ships.info! Click on various starships to view their details page.
 
 #### Credits:
 <a href="www.swapi.dev">SWAPI</a> for starship data
