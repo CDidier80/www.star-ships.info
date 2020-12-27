@@ -17,7 +17,6 @@
 }
 
 
-
 ::-webkit-scrollbar {
   width: 9px;
 }
@@ -158,9 +157,9 @@ body.loaded {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   grid-gap: 1.8rem;
+  z-index: 100;
   background-color: rgba(0,0,0,.5);
   padding: 18px 10px 18px 10px;
-  /* margin-bottom: 160px; */
   justify-items: center;
   border-radius: 9px;
 }
@@ -207,6 +206,7 @@ body.loaded {
   display: grid; 
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 1.8rem;
+  box-shadow: 0px 0px 15px white;
 }
 
 .shipDetail {
@@ -226,7 +226,6 @@ body.loaded {
 
 .footer {
   margin: 50px auto;
-  z-index: 400;
   width: 75%;
   position: relative;
   text-align: center;
@@ -238,35 +237,100 @@ body.loaded {
   animation-delay: .5s;
 }
 
-.collinText {
-  color: rgb(19, 19, 16);
-  text-shadow: 0 0 1px rgb(170, 168, 168), 0 0 2px #bebebb, 0 0 5px #ffffff;
-  margin-bottom: 5px;
-}
+    .collinText {
+      color: rgb(19, 19, 16);
+      text-shadow: 
+          0 0 1px rgb(170, 168, 168), 
+          0 0 2px #bebebb, 
+          0 0 5px #ffffff;
+      margin-bottom: 5px;
+    }
 
-.proTitle {
-  font-size: 15px;
-  word-spacing: .1em;
-  letter-spacing: .1em;
-  color: rgb(247, 246, 235);
-  text-shadow: 0 0 1px  #ffffff;
-}
+        .nameLink {
+          text-decoration: none;
+          margin-left: 2px;
+          color: inherit;
+          display: inline-block;
+          text-shadow: 
+              0 0 1px rgb(182, 234, 255), 
+              0 0 2px #a5fcff, 
+              0 0 5px #7effff;
+          transition: font-size .8s, text-shadow .8s, margin-left .8s, margin-bottom .8s;
+        }
 
-.nameLink {
-  text-decoration: none;
-  margin-left: 2px;
-  color: inherit;
-  display: inline-block;
-  text-shadow: 0 0 1px rgb(170, 168, 168), 0 0 2px #bebebb, 0 0 5px #ffffff;
-  transition: font-size .8s, text-shadow .8s, margin-left .8s, margin-bottom .8s;
-}
+        .nameLink:hover {
+          text-shadow: 
+              0 0 1px rgb(255, 218, 218), 
+              0 0 2px #ff8181, 
+              0 0 5px #ff0000;
+          margin-bottom: 2px;
+          margin-left: 5px;
+          font-size: 1.2em;
+        }
 
-.nameLink:hover {
-  text-shadow: 0 0 1px rgb(182, 234, 255), 0 0 2px #81fbff, 0 0 5px #00ffff;
-  margin-bottom: 2px;
-  margin-left: 5px;
-  font-size: 1.2em;
-}
+    .proTitle {
+      font-size: 15px;
+      word-spacing: .1em;
+      letter-spacing: .1em;
+      color: rgb(247, 246, 235);
+      text-shadow: 0 0 1px  #ffffff;
+    }
+
+    .outLinksWrapper {
+      margin-top: 13px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .apiWrapper {
+      display: block;
+      margin-right: 15px;
+    }
+
+    .githubWrapper {
+      display: block;
+      margin-left: 15px;
+    }
+
+    .linkSentence {
+      font-family: "Bebas Neue";
+      font-size: 18px;
+      font-weight: 500;
+      word-spacing: .05em;
+      letter-spacing: .05em; 
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      margin-bottom: 10px;
+      text-shadow: 
+          0 0 10px #ffffff,
+          0 0 10px #ffffff;
+    }
+
+
+    .apiLink, .githubLink {
+        transition: font-size .8s, text-shadow .8s, margin-left .8s, margin-bottom .8s;
+        text-decoration: none;
+      text-shadow: 
+          0 0 1px rgb(255, 218, 218), 
+          0 0 2px #ff8181, 
+          0 0 3px #ff4040,
+          0 0 10px #ffffff;
+        color: black;
+    }
+
+    .apiLink:hover, .githubLink:hover {
+
+      text-shadow: 
+      0 0 1px rgb(182, 234, 255), 
+      0 0 2px #a5fcff, 
+      0 0 3px #7effff,
+      0 0 10px #ffffff;
+      margin-left: 5px;
+      font-size: 1.3em;
+    }
+
 
 @media (min-height: 1200px) {
   .shipGrid {
@@ -476,7 +540,6 @@ body.loaded {
     opacity: 1;
   }
 }
-
 
 @keyframes text-grow {
   0% {
