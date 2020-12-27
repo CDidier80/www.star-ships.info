@@ -21,8 +21,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.disable('X-Powered-By') 
 app.use(express.static(path.join(__dirname, 'client', 'build'))) 
 
-
-
 app.use('/', apiProxy)
 app.use('/?page=2', apiProxy)
 app.use('/?page=3', apiProxy)
