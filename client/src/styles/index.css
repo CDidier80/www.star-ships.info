@@ -1,0 +1,552 @@
+@font-face {font-family:"STARWARS";
+  src:url("STARWARS/STARWARS.eot") 
+  format("eot"),
+  url("STARWARS/STARWARS.woff") 
+  format("woff"),url("STARWARS/STARWARS.ttf") 
+  format("truetype"),
+  url("STARWARS/STARWARS.svg#STARWARS") 
+  format("svg");
+  font-weight:normal;
+  font-style:normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.title {
+    font-family: "STARWARS";
+}
+
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  background-color: black;
+
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(255,0,0);
+  background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,168,168,1) 50%, rgba(255,0,0,1) 100%);  /* border: 4px black solid; */
+  border-radius: 15px;
+  box-shadow: 0 0 5px rgba(255, 179, 179, 0.92), 0 0 11px rgba(255, 120, 120, 0.52), 0 0 19px rgba(255, 63, 63, 0.92), 0 0 31px rgba(255, 24, 24, 0.78), 0 0 51px rgba(242, 30, 30, 0.92);
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(0,228,255);
+background: linear-gradient(90deg, rgba(0,228,255,1) 0%, rgba(196,249,255,1) 50%, rgba(0,228,255,1) 100%);
+box-shadow: 0 0 5px rgba(202,228,225,0.92), 0 0 11px rgba(30,132,242,0.52), 0 0 19px rgba(30,132,242,0.92), 0 0 31px rgba(30,132,242,0.78), 0 0 51px rgba(30,132,242,0.92);
+}
+
+
+html {
+  background-color: black;
+  margin: 0;
+  z-index: -2;
+}
+
+body {
+    margin: auto;
+    overflow: hidden;
+    vertical-align: middle;
+    /* height: 100vh;
+    width: 100vw;  */
+    /* z-index: -50; */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+body.loaded {
+  margin: auto;
+  max-width: 1350px;
+  overflow-x: hidden;   
+  overflow-y: visible;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.video { 
+  position: fixed;
+  top: 50%;
+  left: 50%; 
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+  transition: 1s opacity;
+}
+
+.homepageWrapper {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-color: black;
+  z-index: -2;
+  position: relative;
+  margin-bottom: 60px;
+  padding-bottom: 100px;
+  }
+
+.returnLink { 
+  position: absolute;
+  font-size: 25px;
+  left: 22px;
+  top: 22px;
+  color: black;
+  text-shadow: 0 0 1px white, 0 0 2px #faffa3, 0 0 4px #f8ff6b;
+  text-decoration: none;
+  font-family: "Bebas Neue";
+  z-index: 1000;
+}
+
+.titleBackground {
+  position: absolute;
+  text-align: center; 
+  background-color: black;
+  left: 0;
+  width: 100vw; 
+  height: 15vh;
+  height: 107px;
+  margin: 0;
+  padding-top: 13px;
+  padding-bottom: 10px;
+  box-shadow: 0 2px 2px yellow;
+  z-index: 100;
+}
+
+.title {
+  margin: 0;
+  padding-top: 17px; 
+  color: yellow;
+  font-size: 65px;
+  font-display: fallback;
+  -webkit-animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.subtitle {
+  margin: 0;
+  margin-bottom: 10px;
+  padding-top: 17px; 
+  color: yellow;
+  font-family: "Bebas Neue";
+  font-size: 14px;
+  word-spacing: .29em;
+  letter-spacing: .27em;
+  font-display: fallback;
+  -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.shipGrid {
+  position: relative;
+  margin: auto;
+  width: 90%;
+  top: 145px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-gap: 1.8rem;
+  z-index: 100;
+  background-color: rgba(0,0,0,.5);
+  padding: 18px 10px 18px 10px;
+  justify-items: center;
+  border-radius: 9px;
+}
+
+.shipSquares {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  padding: 4px;
+  overflow: hidden;
+  text-align: center;
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  box-shadow: 0px 0px 9px white;
+  opacity: 0.8;
+	-webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.shipLink {
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  width: 100%;
+  margin: 0 auto;
+  font-size: 16px;
+  color: white;
+  background-color: rgba(0,0,0,.3);
+  text-decoration: none;
+}
+
+.detailWrapper {
+  margin: 0 auto 60px auto;
+  width: 75%;
+  max-width: 1100px;
+  min-width: 245px;
+  background-color: rgba(0,0,0,.8);
+  padding: 13px;
+  padding-top: 4px;
+  border-radius: 5px;
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 1.8rem;
+  box-shadow: 0px 0px 15px white;
+}
+
+.shipDetail {
+  width: 80%;
+  color: black;
+  font-size: 20px;
+  text-align: left;
+  border-bottom: 1px yellow solid; 
+  text-shadow: 0 0 1px white, 0 0 2px #faffa3, 0 0 4px #f8ff6b
+}
+
+.dataPoint {
+  color: white;
+  font-size: 16px;
+  text-align: left;
+}
+
+.footer {
+  margin: 50px auto;
+  width: 75%;
+  position: relative;
+  text-align: center;
+  padding: 120px 0px 25px 0px;
+  border-radius: 25%;
+  font-family: "Bebas Neue";
+  -webkit-animation: fade-in 1.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in 1.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation-delay: .5s;
+}
+
+    .collinText {
+      color: rgb(19, 19, 16);
+      text-shadow: 
+          0 0 1px rgb(170, 168, 168), 
+          0 0 2px #bebebb, 
+          0 0 5px #ffffff;
+      margin-bottom: 5px;
+    }
+
+        .nameLink {
+          text-decoration: none;
+          margin-left: 2px;
+          color: inherit;
+          display: inline-block;
+          text-shadow: 
+              0 0 1px rgb(182, 234, 255), 
+              0 0 2px #a5fcff, 
+              0 0 5px #7effff;
+          transition: font-size .8s, text-shadow .8s, margin-left .8s, margin-bottom .8s;
+        }
+
+        .nameLink:hover {
+          text-shadow: 
+              0 0 1px rgb(255, 218, 218), 
+              0 0 2px #ff8181, 
+              0 0 5px #ff0000;
+          margin-bottom: 2px;
+          margin-left: 5px;
+          font-size: 1.2em;
+        }
+
+    .proTitle {
+      font-size: 15px;
+      word-spacing: .1em;
+      letter-spacing: .1em;
+      color: rgb(247, 246, 235);
+      text-shadow: 0 0 1px  #ffffff;
+    }
+
+    .outLinksWrapper {
+      margin-top: 13px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .apiWrapper {
+      display: block;
+      margin-right: 15px;
+    }
+
+    .githubWrapper {
+      display: block;
+      margin-left: 15px;
+    }
+
+    .linkSentence {
+      font-family: "Bebas Neue";
+      font-size: 18px;
+      font-weight: 500;
+      word-spacing: .05em;
+      letter-spacing: .05em; 
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      margin-bottom: 10px;
+      text-shadow: 
+          0 0 10px #ffffff,
+          0 0 10px #ffffff;
+    }
+
+
+    .apiLink, .githubLink {
+        transition: font-size .8s, text-shadow .8s, margin-left .8s, margin-bottom .8s;
+        text-decoration: none;
+      text-shadow: 
+          0 0 1px rgb(255, 218, 218), 
+          0 0 2px #ff8181, 
+          0 0 3px #ff4040,
+          0 0 10px #ffffff;
+        color: black;
+    }
+
+    .apiLink:hover, .githubLink:hover {
+
+      text-shadow: 
+      0 0 1px rgb(182, 234, 255), 
+      0 0 2px #a5fcff, 
+      0 0 3px #7effff,
+      0 0 10px #ffffff;
+      margin-left: 5px;
+      font-size: 1.3em;
+    }
+
+
+@media (min-height: 1200px) {
+  .shipGrid {
+    top: 170px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 1.8rem;
+    padding: 18px 10px 18px 10px;
+  }
+
+  .shipSquares {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .footer {
+    padding-top: 180px;
+  }
+
+  .collinText {
+    font-size: 38px;
+  }
+  .proTitle {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 850px) {
+  .returnLink {
+    font-size: 3vw;
+      }
+
+  .detailWrapper {
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(46%, 1fr));
+  }
+
+  .footer {
+    padding-top: 150px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .shipGrid {
+    top: 135px;
+    grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+    grid-gap: 1.2rem;
+    padding-top: 20px;
+  }
+
+  .shipSquares {
+    width: 125px;
+    height: 125px;
+    padding: 4px;
+  }
+
+  .footer {
+    padding-top: 120px;
+  }
+}
+
+@media (max-width: 500px) {
+  .returnLink {
+    font-size: 14px;
+    left: 12px;
+    top: 12px;
+      }
+
+  .shipGrid {
+    top: 100px;
+    grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+    grid-gap: 1.2rem;
+    padding-top: 20px;
+  }
+
+  .title { 
+    padding-top: 13px; 
+    font-size: 6vh;
+  }
+  .titleBackground { 
+    height: 90px;  
+  }
+  .shipGrid {
+    top: 120px;
+    grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+    grid-gap: 1.2rem;
+    padding-top: 20px;
+  }
+  .detailWrapper {
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(46%, 1fr));
+  }
+
+  .shipDetail {
+    font-size: 16px;
+  }
+
+  .dataPoint {
+    font-size: 12px
+    }
+
+}
+
+@media (max-width: 425px) {
+
+.returnLink {
+  left: 12px;
+  top: 12px;
+    }
+
+  .shipSquares {
+    width: 125px;
+    height: 125px;
+    padding: 4px;
+  }
+
+  .shipLink {
+    font-size: 10px;
+    text-transform: capitalize
+  }
+
+  .shipDetail {
+    font-size: 14px;
+  }
+
+  .dataPoint {
+    font-size: 12px
+    }
+}
+
+@media (max-width: 385px) and (min-height: 880px){
+  .titleBackground { 
+    height: 7.6vh   
+  }
+  .title { 
+    overflow: hidden;
+    text-overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .subtitle {
+    text-overflow: hidden;
+    white-space: nowrap;
+  }
+
+}
+
+@media (max-width: 340px) {
+  .titleBackground { 
+    height: 100px; 
+    max-height: 110px;  
+    text-overflow: hidden;
+    white-space: nowrap;
+  }
+  .title { 
+    padding-top: 7px; 
+    font-size: 44px;
+    text-overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    text-overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 300px) {
+  .returnLink {
+    font-size: 14px;
+    left: 5px;
+    top: 5px;
+      }
+
+  .shipGrid {
+    top: 13vh;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-gap: 1.8rem;
+  }
+
+  .shipSquares {
+    width: 100px;
+    height: 100px;
+    padding: 4px;
+  }
+
+  .shipLink {
+    font-size: 10px;
+  }
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes text-grow {
+  0% {
+    margin-left: 2px;
+    text-shadow: 0 0 1px rgb(170, 168, 168), 0 0 2px #bebebb, 0 0 5px #ffffff;
+  }
+  100% {
+    opacity: 1;
+  }
+}
