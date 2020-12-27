@@ -10,7 +10,7 @@ const ShipGrid = (props) => {
     const nameReformat = (name) => {
         const splitName = name.split(" ")
         let titleCasedString = ""
-        splitName.map((word) => {
+        splitName.forEach((word) => {
             // corrects mispelling from SWAPI 
             if (word.includes("frigte")) {
                 word = word.replace("frigte", "Frigate")
