@@ -4,7 +4,7 @@ const logger = require('morgan')
 const helmet = require('helmet')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const {createProxyMiddleware} = require('http-proxy-middleware');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 const apiProxy = createProxyMiddleware({
   target: 'https://swapi.dev/api/starships',
   changeOrigin: true, // for vhosted sites, changes host header to match to target's host
