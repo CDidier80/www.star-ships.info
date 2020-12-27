@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express')
 const logger = require('morgan')
 const helmet = require('helmet')
@@ -13,21 +14,30 @@ const PORT = process.env.PORT || 3000
 const app = express()
 
 app.use(logger('dev'))
-app.use(helmet())
+app.use(helmet({ contentSecurityPolicy: false }))
 // app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.disable('X-Powered-By') 
+app.use(express.static(path.join(__dirname, 'client', 'build'))) 
+
+
 
 app.use('/', apiProxy)
 app.use('/?page=2', apiProxy)
 app.use('/?page=3', apiProxy)
 app.use('/?page=4', apiProxy)
-app.listen(PORT, async () => {
 
-try {
-  console.log(`App listening on port: ${PORT}`)
-} catch (error) {
-  throw new Error('Connection Error')
-}
+app.get('*', (req, res) =>
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+)
+
+app.listen(PORT, () => {
+  if (process.env.NODE_ENV === 'production') {
+    console.log(`Server.js listening on port ${PORT}`)
+  } 
 })
+
+  
+
 
