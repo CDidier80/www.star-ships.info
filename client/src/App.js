@@ -29,10 +29,12 @@ function App() {
       const responsePage2 = await ApiClient.get("/?page=2")
       const responsePage3 = await ApiClient.get("/?page=3")
       const responsePage4 = await ApiClient.get("/?page=4")
-      const combinedShipArray = [...responsePage1.data.results, ...responsePage2.data.results,
-        ...responsePage3.data.results, ...responsePage4.data.results
+      const combinedShipArray = [
+        ...responsePage1.data.results, 
+        ...responsePage2.data.results,
+        ...responsePage3.data.results, 
+        ...responsePage4.data.results
       ]
-      console.log("combined ship array: ", combinedShipArray)
       loadStarships(combinedShipArray)
       if (!pageIsLoaded) {
         changeLoadedBoolean(true)
@@ -40,7 +42,6 @@ function App() {
       }
     }
     getShips()
-    console.log(pageIsLoaded)
   }, []) 
 
   return (
