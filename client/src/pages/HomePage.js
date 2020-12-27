@@ -7,6 +7,7 @@ import ShipGrid from './components/ShipGrid';
 
 const HomePage = (props) => {
 
+  
     return (!props.pageIsLoaded ? <LoadingScreen /> : 
         <div>
           <video className="video" autoPlay loop muted src={video} type="video/mp4"> Your browser does not support the video tag.</video>
