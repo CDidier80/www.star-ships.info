@@ -12,7 +12,7 @@ const LoadingScreen = () => {
 
     let loadingStyles = {
 
-            loadingTextWrapper: {
+        loadingTextWrapper: {
             position: "absolute", 
             zIndex: "100",
             left: "50%", 
@@ -33,7 +33,11 @@ const LoadingScreen = () => {
             fontFamily: 'Bebas Neue',
             textAlign: "center",
             fontDisplay: "fallback",
-            textShadow: "0 0 5px rgba(202,228,225,0.92), 0 0 11px rgba(30,132,242,0.52), 0 0 19px rgba(30,132,242,0.92), 0 0 31px rgba(30,132,242,0.78), 0 0 51px rgba(30,132,242,0.92)",
+            textShadow: `0 0 5px rgba(202,228,225,0.92), 
+                        0 0 11px rgba(30,132,242,0.52), 
+                        0 0 19px rgba(30,132,242,0.92), 
+                        0 0 31px rgba(30,132,242,0.78), 
+                        0 0 51px rgba(30,132,242,0.92)`,
         },
     
         wrap: {
@@ -46,7 +50,6 @@ const LoadingScreen = () => {
         wallRight: {
             transform: `rotateY(90deg) translateZ(${halfHSD}px)`,
             WebkitTransform: `rotateY(90deg) translateZ(${halfHSD}px)`,
-            MozTransform:`rotateY(90deg) translateZ(${halfHSD}px)`,
             MsTransform:`rotateY(90deg) translateZ(${halfHSD}px)`,
             OTransform:`rotateY(90deg) translateZ(${halfHSD}px)`,
         },
@@ -54,7 +57,6 @@ const LoadingScreen = () => {
         wallLeft: {
             transform: `rotateY(-90deg) translateZ(${halfHSD}px)`,
             WebkitTransform: `rotateY(-90deg) translateZ(${halfHSD}px)`,
-            MozTransform:`rotateY(-90deg) translateZ(${halfHSD}px)`,
             MsTransform:`rotateY(-90deg) translateZ(${halfHSD}px)`,
             OTransform:`rotateY(-90deg) translateZ(${halfHSD}px)`,
         },
@@ -62,7 +64,6 @@ const LoadingScreen = () => {
         wallTop: {
             transform: `rotateX(90deg) translateZ(${halfHSD}px)`,
             WebkitTransform: `rotateX(90deg) translateZ(${halfHSD}px)`,
-            MozTransform:`rotateX(90deg) translateZ(${halfHSD}px)`,
             MsTransform:`rotateX(90deg) translateZ(${halfHSD}px)`,
             OTransform:`rotateX(90deg) translateZ(${halfHSD}px)`,
         },
@@ -70,7 +71,6 @@ const LoadingScreen = () => {
         wallBottom: {
             transform: `rotateX(-90deg) translateZ(${halfHSD}px)`,
             WebkitTransform: `rotateX(-90deg) translateZ(${halfHSD}px)`,
-            MozTransform:`rotateX(-90deg) translateZ(${halfHSD}px)`,
             MsTransform:`rotateX(-90deg) translateZ(${halfHSD}px)`,
             OTransform:`rotateX(-90deg) translateZ(${halfHSD}px)`,
         },
@@ -78,7 +78,6 @@ const LoadingScreen = () => {
         wallBack: {
             transform: `rotateX(180deg) translateZ(${halfHSD}px)`,
             WebkitTransform: `rotateX(180deg) translateZ(${halfHSD}px)`,
-            MozTransform:`rotateX(180deg) translateZ(${halfHSD}px)`,
             MsTransform:`rotateX(180deg) translateZ(${halfHSD}px)`,
             OTransform:`rotateX(180deg) translateZ(${halfHSD}px)`,
         }
