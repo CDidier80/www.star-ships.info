@@ -4,6 +4,7 @@ import ApiClient from './Services/ApiClient'
 import './styles/Loading.css';
 import HomePage from './pages/HomePage'
 import StarshipPage from './pages/StarshipPage.js'
+import { response } from 'express';
 
 const App = () => {
 
@@ -28,13 +29,15 @@ const App = () => {
       const responsePage2 = await ApiClient.get("/?page=2")
       const responsePage3 = await ApiClient.get("/?page=3")
       const responsePage4 = await ApiClient.get("/?page=4")
-      const combinedShipArray = [
-        ...responsePage1.data.results, 
-        ...responsePage2.data.results,
-        ...responsePage3.data.results, 
-        ...responsePage4.data.results
-      ]
-      loadStarships(combinedShipArray)
+      // const combinedShipArray = [
+      //   ...responsePage1.data.results, 
+      //   ...responsePage2.data.results,
+      //   ...responsePage3.data.results, 
+      //   ...responsePage4.data.results
+      // ]
+
+      responsePage1.concat(responsePage2, responsePage3, responsePage4)
+      loadStarships(responsePage1)
       if (!pageIsLoaded) {
         changeLoadedBoolean(true)
         document.body.classList.add("loaded")
