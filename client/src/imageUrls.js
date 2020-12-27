@@ -58,7 +58,6 @@ export const imageUrls = [
 ]
 
 
-
 export const backgroundImages = [
     "https://wallpaperaccess.com/full/2137907.jpg", 
     "https://wallpaperaccess.com/full/1801913.jpg",
@@ -67,4 +66,3 @@ export const backgroundImages = [
     "https://i.ibb.co/tH9GCb9/DAC54-D86-51-D8-455-D-8-EE1-9-E89-C5-F57844.jpg"
 ]
 
-/* <blockquote class="imgur-embed-pub" lang="en" data-id="aywyRxp"><a href="https://imgur.com/aywyRxp">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script> */
