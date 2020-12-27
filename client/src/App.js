@@ -26,20 +26,9 @@ const App = () => {
     console.log("useEffect reached")
     const getShips = async () => {
       const responsePage1 = await ApiClient.get("/")
-      console.log("responsePage1",responsePage1)
       const responsePage2 = await ApiClient.get("/?page=2")
-      console.log("responsePage2",responsePage2)
       const responsePage3 = await ApiClient.get("/?page=3")
-      console.log("responsePage3",responsePage3)
       const responsePage4 = await ApiClient.get("/?page=4")
-      console.log("responsePage4",responsePage4)
-      // const combinedShipArray = [
-      //   ...responsePage1.data.results, 
-      //   ...responsePage2.data.results,
-      //   ...responsePage3.data.results, 
-      //   ...responsePage4.data.results
-      // ]
-
       const combinedArray = responsePage1.data.results.concat(
         responsePage2.data.results, 
         responsePage3.data.results, 
