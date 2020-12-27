@@ -5,7 +5,7 @@
 <img src="https://i.ibb.co/2FjCHCy/CF8-DB1-E3-B050-418-B-BC0-D-3-D6-E7-B6-A4367.jpg" />
 
 
-#### Date: 12/1026/2020
+#### Date: 12/26/2020
 
 ### Description
 #### star-ships.info is visually impactful, full stack web application that enables users to view the fictional details of spacecraft from the Star Wars universe.
@@ -29,5 +29,4 @@ Deployed & Complete
 Visit https://www.star-ships.info! Click on various starships to view their details page.
 
 #### Credits:
-SWAPI for starship data
-swapi.dev
+<a href="www.swapi.dev">SWAPI</a> for starship data
