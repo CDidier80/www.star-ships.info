@@ -1,5 +1,5 @@
 import React from 'react'
-import imageUrls from '../../imageUrls';
+import { imageUrls } from '../../imageUrls';
 
 const ShipGrid = (props) => {
 
