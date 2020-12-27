@@ -298,6 +298,7 @@ body.loaded {
 }
 
     .collinText {
+        display: block;
         margin-bottom: 5px;
         color: rgb(19, 19, 16);
         text-shadow: 
@@ -307,6 +308,8 @@ body.loaded {
     }
 
         .nameLink {
+            display: block;
+            padding-left: 5px;
             text-decoration: none;
             margin-left: 2px;
             color: inherit;

@@ -3,6 +3,7 @@ import { InView } from 'react-intersection-observer';
 
 const Footer = () => {
 
+    const createdBy = "Created by "
     const [inView, setInview] = useState(false)
 
     return (
@@ -13,12 +14,7 @@ const Footer = () => {
             style={inView? {display: "block"}: {display: "none"}}
         > 
             <h1 className="collinText">Created by 
-                <a 
-                    className="nameLink" 
-                    href="https://www.linkedin.com/in/collin-didier/"
-                >
-                    Collin Didier
-                </a>
+                <a className="nameLink" href="https://www.linkedin.com/in/collin-didier/" >Collin Didier</a>
             </h1>
             <p 
                 className="proTitle">
@@ -32,8 +28,7 @@ const Footer = () => {
                             className="apiLink" 
                             href="https://swapi.dev/" 
                             target="blank"
-                        > 
-                            SWAPI API
+                        > SWAPI API
                         </a>
                     </p>
                 </div>
@@ -44,8 +39,7 @@ const Footer = () => {
                             className="githubLink" 
                             href="https://github.com/CDidier80/www.star-ships.info" 
                             target="blank"
-                        > 
-                            Github
+                        > Github
                         </a>
                     </p>
                 </div>
