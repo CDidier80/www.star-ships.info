@@ -2,7 +2,7 @@
 
 ### *by Collin Didier* 
 
-
+<img src="https://i.ibb.co/2FjCHCy/CF8-DB1-E3-B050-418-B-BC0-D-3-D6-E7-B6-A4367.jpg" />
 
 ##### [GitHub](https://github.com/CDidier80) | [LinkedIn](https://www.linkedin.com/in/collin-didier-a072a858/) 
 
