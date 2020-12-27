@@ -17,7 +17,7 @@ const Footer = () => {
             </div>
             <div className="githubWrapper">
                 <p className="linkSentence">View project details on 
-                    <a className="githubLink" href="https://github.com/CDidier80/react-ajax-swapi" target="blank"> Github</a>
+                    <a className="githubLink" href="https://github.com/CDidier80/www.star-ships.info" target="blank"> Github</a>
                 </p>
             </div>
             </div>
