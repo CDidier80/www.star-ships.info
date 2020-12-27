@@ -1,8 +1,8 @@
 import React from 'react'
-import imageUrls from '../imageUrls';
+import { backgroundImages, imageUrls } from '../imageUrls';
 import { NavLink } from 'react-router-dom';
 import "../styles/STARWARS/starwarsfont.css"
-import backgroundImages from "../imageUrls"
+
 
 function StarshipPage (props) {
 
@@ -22,11 +22,6 @@ function StarshipPage (props) {
   ]
 
   const divMultiplier = name.length * 24
-  // const { innerWidth } = window 
-  // const iwi = String(innerWidth)
-
-  // let result = innerWidth < 1000 ? "4.5vw" : "20px"
-  // console.log(typeof iwi)
 
   let starshipStyles = {
 
@@ -69,7 +64,7 @@ function StarshipPage (props) {
       marginTop: "2vh",
       marginBottom: "2vh",
       boxShadow: "0px 0px 15px white",
-      backgroundImage: `${imageUrls[props.history.location.state.imageNum]}`,
+      backgroundImage: `${imageUrls[imageNum]}`,
       backgroundSize: "cover", 
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
@@ -112,7 +107,6 @@ function StarshipPage (props) {
         </div>
       </main>
     </div>
-
   )
 }
 
