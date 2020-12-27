@@ -12,6 +12,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .title {
     font-family: "STARWARS";
 }
@@ -172,6 +177,14 @@ body.loaded {
     -webkit-animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
+
+@-moz-document url-prefix() {
+  .title {
+    max-height: 58px;
+    padding-top: 17px;
+  }
+}
+
 
 .subtitle {
     margin: 0;
