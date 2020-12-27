@@ -35,16 +35,33 @@
     transform-style: preserve-3d;
     animation: move 14s infinite linear;
     -webkit-animation: move 14s infinite linear;
+    -moz-animation: move 14s infinite linear;
+    -ms-animation: move 14s infinite linear;
+    -o-animation: move 14s infinite linear;
+
     -webkit-animation-fill-mode: forwards;    
     animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
 }
 
 .wrap:nth-child(2) {
     animation: move 14s infinite linear;
-    animation-delay: 0s;
-
     -webkit-animation: move 14s infinite linear;
+    -moz-animation: move 14s infinite linear;
+    -ms-animation: move 14s infinite linear;
+    -o-animation: move 14s infinite linear;
+
+    animation-delay: 0s;
     -webkit-animation-delay: 0s;
+    -moz-animation-delay: 0s;
+    -ms-animation-delay: 0s;
+    -o-animation-delay: 0s;
+
+
+
+
 }
 
 .wall {
@@ -53,14 +70,24 @@
     position: absolute;
     opacity: 1;
     animation: fade 14s infinite linear;  
-    animation-delay: 0;
     -webkit-animation: fade 14s infinite linear;
+    -moz-animation: fade 14s infinite linear;
+    -ms-animation: fade 14s infinite linear;
+    -o-animation: fade 14s infinite linear;
+    animation-delay: 0;
     -webkit-animation-delay: 0;  
+    -webkit-animation-delay: 0;  
+    -moz-animation-delay: 0;  
+    -ms-animation-delay: 0;  
+    -o-animation-delay: 0;  
 }
 
 .wrap:nth-child(2) .wall {
     animation-delay: 6s;
     -webkit-animation-delay: 6s; 
+    -moz-animation-delay: 6s;
+    -ms-animation-delay: 6s;
+    -o-animation-delay: 6s;
 }
 
 
@@ -106,8 +133,6 @@
     }
 }
 
-
-
 @keyframes move { 
     0% { 
         transform: translateZ(-270px) rotate(0deg); 
@@ -133,16 +158,9 @@
     } 
 }
 
-@keyframes fade { 
-    0% {
-        opacity: 0; 
-    } 
-    25% { 
-        opacity: 1; 
-    } 
-    75% { 
-        opacity: 1; 
-    } 
-    100% { opacity: 0; 
-    } 
-}
+@keyframes fade { 0% { opacity: 0; } 25% { opacity: 1; } 75% { opacity: 1; } 100% { opacity: 0; } }
+@-webkit-keyframes fade { 0% { opacity: 0; } 25% { opacity: 1; } 75% { opacity: 1; } 100% { opacity: 0; } }
+@-moz-keyframes fade { 0% { opacity: 0; } 25% { opacity: 1; } 75% { opacity: 1; } 100% { opacity: 0; } }
+@-ms-keyframes fade { 0% { opacity: 0; } 25% { opacity: 1; } 75% { opacity: 1; } 100% { opacity: 0; } }
+@-o-keyframes fade { 0% { opacity: 0; } 25% { opacity: 1; } 75% { opacity: 1; } 100% { opacity: 0; } }
+

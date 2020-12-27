@@ -133,6 +133,9 @@ body.loaded {
   font-display: fallback;
   -webkit-animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -moz-animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -ms-animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -o-animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 .subtitle {
@@ -147,6 +150,9 @@ body.loaded {
   font-display: fallback;
   -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -moz-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -ms-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -o-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 .shipGrid {
@@ -179,6 +185,9 @@ body.loaded {
   opacity: 0.8;
 	-webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+-moz-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+-ms-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+-o-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 .shipLink {
@@ -232,9 +241,18 @@ body.loaded {
   padding: 120px 0px 25px 0px;
   border-radius: 25%;
   font-family: "Bebas Neue";
+
   -webkit-animation: fade-in 1.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: fade-in 1.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -moz-animation: fade-in 1.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -ms-animation: fade-in 1.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -o-animation: fade-in 1.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
   animation-delay: .5s;
+  -webkit-animation-delay: .5s;
+  -o-animation-delay: .5s;
+  -ms-animation-delay: .5s;
+  -moz-animation-delay: .5s;
 }
 
     .collinText {
@@ -538,30 +556,17 @@ body.loaded {
   }
 }
 
-@-webkit-keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 
-@keyframes text-grow {
-  0% {
-    margin-left: 2px;
-    text-shadow: 0 0 1px rgb(170, 168, 168), 0 0 2px #bebebb, 0 0 5px #ffffff;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+@keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+@-webkit-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+@-moz-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+@-ms-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+@-o-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+
+@keyframes text-grow {0% { margin-left: 2px; text-shadow: 0 0 1px rgb(170, 168, 168), 0 0 2px #bebebb, 0 0 5px #ffffff; } 100% { opacity: 1; } }
+@-webkit-keyframes text-grow {0% { margin-left: 2px; text-shadow: 0 0 1px rgb(170, 168, 168), 0 0 2px #bebebb, 0 0 5px #ffffff; } 100% { opacity: 1; } }
+@-moz-keyframes text-grow {0% { margin-left: 2px; text-shadow: 0 0 1px rgb(170, 168, 168), 0 0 2px #bebebb, 0 0 5px #ffffff; } 100% { opacity: 1; } }
+@-ms-keyframes text-grow {0% { margin-left: 2px; text-shadow: 0 0 1px rgb(170, 168, 168), 0 0 2px #bebebb, 0 0 5px #ffffff; } 100% { opacity: 1; } }
+@-o-keyframes text-grow {0% { margin-left: 2px; text-shadow: 0 0 1px rgb(170, 168, 168), 0 0 2px #bebebb, 0 0 5px #ffffff; } 100% { opacity: 1; } }
