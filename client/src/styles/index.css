@@ -447,6 +447,10 @@ body.loaded {
     padding: 4px;
   }
 
+  .proTitle {
+    font-size: 13px;
+  }
+
   .shipLink {
     font-size: 10px;
     text-transform: capitalize
@@ -478,6 +482,13 @@ body.loaded {
 
 }
 
+@media (max-width: 360px){
+  .proTitle {
+    font-size: 12px;
+  }
+
+}
+
 @media (max-width: 340px) {
   .titleBackground { 
     height: 100px; 
@@ -496,6 +507,10 @@ body.loaded {
     font-size: 14px;
     text-overflow: hidden;
     white-space: nowrap;
+  }
+
+  .proTitle {
+    font-size: 11px;
   }
 }
 
