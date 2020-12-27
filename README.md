@@ -1,16 +1,15 @@
 # www.star-ships.info
 
 ### *by Collin Didier* 
-
+##### [GitHub](https://github.com/CDidier80) | [LinkedIn](https://www.linkedin.com/in/collin-didier-a072a858/) 
 <img src="https://i.ibb.co/2FjCHCy/CF8-DB1-E3-B050-418-B-BC0-D-3-D6-E7-B6-A4367.jpg" />
 
-##### [GitHub](https://github.com/CDidier80) | [LinkedIn](https://www.linkedin.com/in/collin-didier-a072a858/) 
 
 #### Date: 12/1026/2020
 
 ### Description
 #### star-ships.info is visually impactful, full stack web application that enables users to view the fictional details of spacecraft from the Star Wars universe.
-#### Starship data is fetched from the public SWAPI.dev REST API. An a light-weight Express proxy server is used to mitigate CORS issues with SWAPI. 
+#### Starship data is fetched from the public SWAPI.dev REST API. A a light-weight Express proxy server mitigates CORS issues caused by SWAPI headers. 
 
 
 ### Core Technologies:
