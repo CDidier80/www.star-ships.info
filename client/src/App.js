@@ -5,12 +5,11 @@ import './styles/Loading.css';
 import HomePage from './pages/HomePage'
 import StarshipPage from './pages/StarshipPage.js'
 
-function App() {
+const App = () => {
 
   const [pageIsLoaded, changeLoadedBoolean] = useState(false)
   const [starships, loadStarships] = useState([])
   
-
   const loadedStyle = {
     minWidth: "650px",
     maxWidth: "1350px",

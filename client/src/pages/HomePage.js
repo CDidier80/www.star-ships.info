@@ -5,10 +5,7 @@ import Footer from './components/Footer';
 import "../styles/STARWARS/starwarsfont.css"
 import ShipGrid from './components/ShipGrid';
 
-
-
 const HomePage = (props) => {
-
 
     return (!props.pageIsLoaded ? <LoadingScreen /> : 
         <div>

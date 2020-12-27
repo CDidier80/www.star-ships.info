@@ -1,4 +1,3 @@
-
 const express = require('express')
 const logger = require('morgan')
 const helmet = require('helmet')
@@ -25,10 +24,10 @@ app.use('/?page=3', apiProxy)
 app.use('/?page=4', apiProxy)
 app.listen(PORT, async () => {
 
-  try {
-    console.log(`App listening on port: ${PORT}`)
-  } catch (error) {
-    throw new Error('Connection Error')
-  }
+try {
+  console.log(`App listening on port: ${PORT}`)
+} catch (error) {
+  throw new Error('Connection Error')
+}
 })
 
