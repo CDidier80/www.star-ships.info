@@ -1,7 +1,7 @@
 import React from 'react'
 import video from "../starwarsmontage.mp4"
 import LoadingScreen from './components/LoadingScreen';
-import NameAndOutlinks from './components/NameAndOutlinks';
+import Footer from './components/Footer';
 import "../styles/STARWARS/starwarsfont.css"
 import ShipGrid from './components/ShipGrid';
 
@@ -18,7 +18,7 @@ const HomePage = (props) => {
             <p className="subtitle">Spacecraft of the Star Wars Saga</p>
           </div>
           <ShipGrid {...props} />
-          <NameAndOutlinks />
+          <Footer />
         </div>
     )
 }
