@@ -1,13 +1,15 @@
 import React from 'react'
 import video from "../starwarsmontage.mp4"
 import LoadingScreen from './components/LoadingScreen';
+import Temp from './components/LoadingScreen';
 import Footer from './components/Footer';
 import "../styles/STARWARS/starwarsfont.css"
 import ShipGrid from './components/ShipGrid';
 
 const HomePage = (props) => {
 
-    return (!props.pageIsLoaded ? <LoadingScreen /> : 
+  // !props.pageIsLoaded ? <LoadingScreen /> : 
+    return (!props.pageIsLoaded ? <Temp /> : 
         <div>
           <video className="video" autoPlay playsInline loop muted src={video} type="video/mp4"> Your browser does not support the video tag.</video>
           <div className="titleBackground" >
