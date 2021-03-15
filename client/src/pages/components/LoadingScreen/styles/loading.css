@@ -1,0 +1,150 @@
+.hyperspace-wrapper {
+    top: 0;
+    left: 0;
+    opacity: 1;
+    content: '';
+    z-index: -2;
+    width: 100vw;
+    height: 100vh; 
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.scene {
+    -webkit-perspective-origin: 50% 50%;
+    perspective-origin: 50% 50%;
+    -webkit-perspective: 5px;
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+    perspective: 5px;
+    top: 50%;
+}
+
+/* opaque wrap / walls to give animation content at start while other walls fade in */
+.static-wrap {
+    position: absolute;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    opacity: 1;
+        animation: move 12s infinite linear forwards;
+    -webkit-animation: move 12s infinite linear forwards;
+}
+
+
+.static-wall {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    animation: fadeout 6s  0s linear forwards;  
+    -webkit-animation: fadeout 6s linear 0s forwards;
+    background: url(https://www.renform.co.za/wp-content/uploads/2020/02/space-stars-texture-sololos.jpg);
+}
+
+.wrap {
+    position: absolute;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    animation: move 12s infinite linear forwards;
+    -webkit-animation: move 12s infinite linear forwards;
+    
+}
+
+.wrap:nth-child(2) {
+    animation: move 12s infinite 4s linear;
+    -webkit-animation: move 12s infinite 4s linear;
+}
+
+/* walls of every other hyperspace tunnel */
+/* this causes fade-out of back wall as falcon hits it */
+.wrap:nth-child(2) .wall {
+    animation-delay: 4s;
+    -webkit-animation-delay: 4s; 
+} 
+
+.wall {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    filter: hue-rotate(340deg);
+    animation: fade 12s infinite 0s linear;  
+    -webkit-animation: fade 12s 0s infinite linear;
+    background: url(https://www.renform.co.za/wp-content/uploads/2020/02/space-stars-texture-sololos.jpg);
+}
+
+
+/* 
+@-webkit-keyframes move { 
+    0% { 
+        transform: translateZ(-500px);
+        -webkit-transform: translateZ(-500px);
+        -moz-transform: translateZ(-500px);
+        -ms-transform: translateZ(-500px);
+        -o-transform: translateZ(-500px);
+    } 
+    50% { 
+        -webkit-transform: rotate(-360deg); 
+        -moz-transform: rotate(-360deg); 
+        -ms-transform: rotate(-360deg); 
+        -o-transform: rotate(-360deg); 
+    } 
+    100% { 
+        transform: translateZ(500px);
+        -webkit-transform: translateZ(500px);
+        -moz-transform: translateZ(500px);
+        -ms-transform: translateZ(500px);
+        -o-transform: translateZ(500px);
+    } 
+} */
+
+@keyframes move { 
+    0% { 
+        transform: translateZ(-500px) rotate(0deg);
+    } 
+    50% { 
+        -webkit-transform: translateZ(0px) rotate(180deg); 
+    } 
+    100% { 
+        transform: translateZ(500px) rotate(360deg);
+    } 
+}
+
+@keyframes move-reverse {
+    0% { 
+        transform: translateZ(-500px) rotate(0deg);
+    } 
+    50% { 
+        -webkit-transform: translateZ(0px) rotate(-180deg); 
+    } 
+    100% { 
+        transform: translateZ(500px) rotate(-360deg);
+    } 
+}
+
+@keyframes fadeout { 
+    0%   { opacity: 1; } 
+    100% { opacity: 0; } 
+}
+
+
+@keyframes fade { 
+    0%   { opacity: 0; } 
+    25%  { opacity: 1; }
+    75%  { opacity: 1; } 
+    100% { opacity: 0; } 
+}
+
+
+@-webkit-keyframes fade { 
+    0%   { opacity: 0; } 
+    25%  { opacity: 1; } 
+    75%  { opacity: 1; } 
+    100% { opacity: 0; } 
+}
