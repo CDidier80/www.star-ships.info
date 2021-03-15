@@ -1,0 +1,68 @@
+.temp-page {
+    animation: fade-in 1s ease-in-out forwards;
+    top: 0; bottom: 0; left: 0; right: 0;
+    z-index: 20000000000;
+    position: absolute;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+.text-box {
+    width: 85vw;
+    display: flex;
+    padding: 30px;
+    position: absolute;
+    text-align: center;
+    border-radius: 5px;
+    left: 50%; top: 10%;
+    flex-direction: column;
+    justify-content: space-between;
+    -webkit-transform: translate(-50%);
+        -ms-transform: translate(-50%);
+            transform: translate(-50%);
+    box-shadow: 
+        0 0 5px rgba(202,228,225,0.92), 
+        0 0 11px rgba(30,132,242,0.52), 
+        0 0 19px rgba(30,132,242,0.92), 
+        0 0 31px rgba(30,132,242,0.78), 
+        0 0 51px rgba(30,132,242,0.92);
+
+}
+
+.error-title {
+    color: black;
+    font-size: 44px;
+    margin-bottom: 20px;
+    text-shadow: 
+        0 0 5px rgba(202,228,225,0.92), 
+        0 0 11px rgba(30,132,242,0.52), 
+        0 0 19px rgba(30,132,242,0.92), 
+        0 0 31px rgba(30,132,242,0.78), 
+        0 0 51px rgba(30,132,242,0.92);
+}
+
+.top-margin { margin-top: 10px; }
+
+.temp-text {
+    font-size: 22px;
+    color: #000000;
+    letter-spacing: 1px;
+    font-family: "Bebas Neue";
+    text-shadow: 
+    0 0 5px rgba(202, 228, 225, 0.949), 
+    0 0 11px rgba(30,132,242,0.52), 
+    0 0 19px rgba(30,132,242,0.92), 
+    0 0 31px rgba(30,132,242,0.78), 
+    0 0 51px rgba(30,132,242,0.92);
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 100;
+    }
+}

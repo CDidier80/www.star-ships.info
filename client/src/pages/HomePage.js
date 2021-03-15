@@ -1,25 +1,30 @@
-import React from 'react'
-import video from "../starwarsmontage.mp4"
-import LoadingScreen from './components/LoadingScreen';
-import Temp from './components/LoadingScreen';
-import Footer from './components/Footer';
 import "../styles/STARWARS/starwarsfont.css"
-import ShipGrid from './components/ShipGrid';
+import ShipGrid from './components/ShipGrid'
+import video from "../starwarsmontage.mp4"
+import Footer from './components/Footer'
+import Header from './components/Header'
+import React from 'react'
 
 const HomePage = (props) => {
 
-  // !props.pageIsLoaded ? <LoadingScreen /> : 
-    return (!props.pageIsLoaded ? <Temp /> : 
+    const propsVideo = {
+        className: "video", 
+        type: "video/mp4",
+        playsInline: true,
+        autoPlay: true,
+        muted: true,
+        loop: true,
+        src: video,
+    }
+
+    return (
         <div>
-          <video className="video" autoPlay playsInline loop muted src={video} type="video/mp4"> Your browser does not support the video tag.</video>
-          <div className="titleBackground" >
-            <h1 className="title">STAR SHIPS</h1>
-            <p className="subtitle">Spacecraft of the Star Wars Saga</p>
-          </div>
-          <ShipGrid {...props} />
-          <Footer />
+            <video {...propsVideo}> Your browser does not support the video tag.</video>
+            <Header />
+            <ShipGrid {...props} />
+            <Footer />
         </div>
     )
 }
 
-  export default HomePage
+export default HomePage
