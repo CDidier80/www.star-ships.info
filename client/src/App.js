@@ -1,61 +1,86 @@
-import React, { useState, useEffect } from 'react'
-import {Route, Switch} from 'react-router-dom'
-import ApiClient from './Services/ApiClient'
-import './styles/Loading.css';
-import HomePage from './pages/HomePage'
+import LoadingScreen from './pages/components/LoadingScreen/LoadingScreen'
+import {Route, Switch, withRouter} from 'react-router-dom'
 import StarshipPage from './pages/StarshipPage.js'
+import React, { useState, useEffect } from 'react'
+import ApiClient from './Services/ApiClient'
+import HomePage from './pages/HomePage'
 
 
-const App = () => {
+const App = (props) => {
 
-  const [pageIsLoaded, changeLoadedBoolean] = useState(false)
-  const [starships, loadStarships] = useState([])
-  
-  const loadedStyle = {
-    minWidth: "650px",
-    maxWidth: "1350px",
-    backgroundColor: "black"
-  }
+    const [loadingScreenMounted, setLoadingScreenMounted] = useState(false)
+    const [starships, setStarships] = useState([])
+    const [loaded, setLoaded] = useState(false)
+    const [error, setError] = useState(false)
 
-  const loadingStyle = {
-    minWidth: "650px",
-    backgroundColor: "black"
-  }
 
-  useEffect(() => {
-    console.log("useEffect reached")
-    const getShips = async () => {
-      const responsePage1 = await ApiClient.get("/")
-      const responsePage2 = await ApiClient.get("/?page=2")
-      const responsePage3 = await ApiClient.get("/?page=3")
-      const responsePage4 = await ApiClient.get("/?page=4")
-      const combinedArray = responsePage1.data.results.concat(
-        responsePage2.data.results, 
-        responsePage3.data.results, 
-        responsePage4.data.results
-        )
-        console.log("combinedArray",combinedArray)
-      loadStarships(combinedArray)
-      if (!pageIsLoaded) {
-        changeLoadedBoolean(true)
-        document.body.classList.add("loaded")
-      }
+    const getShips = async (endpoint, appIsMounted) => {
+        if (appIsMounted) {
+            const response = await ApiClient.get(endpoint)
+            return response.data.results
+        }
     }
-    getShips()
-  }, []) 
 
-  return (
-    <div className="app" styles={pageIsLoaded ? loadedStyle : loadingStyle }>
-      <Switch>
-        <Route exact path={"/"} component={
-          (props) => <HomePage {...props} starships={starships} pageIsLoaded={pageIsLoaded}/>} 
-        />
-        <Route path={'/starships'} component={
-          (props) => <StarshipPage {...props} />} 
-          />
-      </Switch>
-    </div>
-  )
+
+    const getAllShips = async (appIsMounted) => {
+        let endpoints = ["/", "/?page=2", "/?page=3", "/?page=4"]
+        try {
+            const [ships1, ships2, ships3, ships4] = await Promise.all(
+                endpoints.map(endpoint => 
+                    getShips(endpoint, appIsMounted)
+                )
+            )
+            setStarships([ ...ships1, ...ships2, ...ships3, ...ships4 ])
+            setTimeout(() => {
+                // setLoaded(true)
+                document.body.classList.add("loaded")
+            }, 1500)
+        } catch (error) {
+            console.log({error})
+            // setLoaded(true)
+            setError(true)
+        }
+    }
+
+
+    useEffect(() => {
+        let appIsMounted = true
+        if (loadingScreenMounted && appIsMounted) {
+            getAllShips(appIsMounted)
+        }
+        return () => appIsMounted = false
+    }, [loaded, loadingScreenMounted]) 
+
+
+    const propsApp = { className: "app" }
+    
+    const propsHome = {
+        starships, 
+        ...props,
+        loaded,
+    }
+
+    const propsLoadingScreen = {
+        setLoadingScreenMounted,
+        loadingScreenMounted
+    }
+
+
+    return ( 
+        
+        !loaded ? <LoadingScreen {...propsLoadingScreen} /> :
+            error ? <LoadingScreen error /> :
+            <div {...propsApp} >
+                <Switch>
+                    <Route exact path="/">
+                        <HomePage {...propsHome} />
+                    </Route> 
+                    <Route path='/starships'>
+                        <StarshipPage {...props} /> 
+                    </Route> 
+                </Switch>
+            </div>
+    )
 }
 
-export default App
+export default withRouter(App)
