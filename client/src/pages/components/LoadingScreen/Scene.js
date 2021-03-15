@@ -4,10 +4,12 @@ import React, { useEffect, useState } from 'react'
 const Scene = () => {
 
     const [staticMounted, setStaticMounted] = useState(true)
-
+    const [timeoutId, setTimeoutId] = useState(null)
 
     useEffect(() => {
-        setTimeout(() => setStaticMounted(false), 4000)
+        let mounted = true
+        setTimeout(() => mounted && setStaticMounted(false), 4000)
+        return () => (mounted = false)
     }, [])
 
     return (
