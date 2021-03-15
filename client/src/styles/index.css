@@ -393,9 +393,6 @@ body.loaded {
 }
 
 @media (max-width: 850px) {
-    .returnLink {
-        font-size: 3vw;
-        }
 
     .detailWrapper {
         grid-gap: 1rem;
@@ -444,6 +441,7 @@ body.loaded {
     padding-top: 13px; 
     font-size: 6vh;
   }
+
   .titleBackground { 
     height: 90px;  
   }
@@ -453,16 +451,11 @@ body.loaded {
         padding-top: 20px;
         grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
      }
-    .detailWrapper {
-        grid-template-columns: repeat(auto-fill, minmax(46%, 1fr));
-        grid-gap: 1rem;
-    }
+
     .shipDetail {
         font-size: 16px;
     }
-    .dataPoint {
-        font-size: 12px
-    }
+
 }
 
 @media (max-width: 425px) {

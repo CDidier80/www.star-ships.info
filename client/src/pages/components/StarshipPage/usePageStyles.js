@@ -52,6 +52,20 @@ export const useStarshipPageStyles = createUseStyles(props => {
                     0 0 2px #a5fcff, 
                     0 0 5px #7effff`,
                 transform: "scale(1.1)",
+            },
+        },
+
+        "@media (max-width: 850px)": {
+            returnLink: {
+                fontSize: "3vw"
+            }
+        },
+
+        "@media (max-width: 500px)": {
+            returnLink: {
+                fontSize: "14px",
+                left: "12px",
+                top: "12px",
             }
         }
     })
@@ -145,6 +159,20 @@ export const useShipDetailsStyles = createUseStyles(props => {
             textAlign: "left",
             paddingTop: "5px",
 
+        },
+        "@media (max-width: 850px)": {
+            detailWrapper: {
+                "grid-gap": "1rem",
+                "grid-template-columns": "repeat(auto-fill, minmax(46%, 1fr))"
+            }
+        },
+        "@media (max-width: 500px)": {
+            dataPoint: {
+                fontSize: "12px",
+            },
+            shipDetail: {
+                fontSize: "16px"
+            }
         }
     })
 })
