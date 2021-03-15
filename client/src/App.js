@@ -32,12 +32,12 @@ const App = (props) => {
             )
             setStarships([ ...ships1, ...ships2, ...ships3, ...ships4 ])
             setTimeout(() => {
-                // setLoaded(true)
+                setLoaded(true)
                 document.body.classList.add("loaded")
             }, 1500)
         } catch (error) {
             console.log({error})
-            // setLoaded(true)
+            setLoaded(true)
             setError(true)
         }
     }
