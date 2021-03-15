@@ -1,0 +1,84 @@
+@-webkit-keyframes fly {
+	0% {
+		transform: scale(1.8) translate(-50%, -50%) rotate(0deg);
+		-webkit-transform: scale(1.8) translate(-50%, -50%) rotate(0deg);
+		-moz-transform: scale(1.8) translate(-50%, -50%) rotate(0deg);
+		-ms-transform: scale(1.8) translate(-50%, -50%) rotate(0deg);
+		-o-transform: scale(1.8) translate(-50%, -50%) rotate(0deg);
+}
+
+    25% {
+        transform: scale(1.2) translate(-70%, -50%) rotate(30deg);
+        -webkit-transform: scale(1.2) translate(-70%, -50%) rotate(30deg);
+        -moz-transform: scale(1.2) translate(-70%, -50%) rotate(30deg);
+        -ms-transform: scale(1.2) translate(-70%, -50%) rotate(30deg);
+        -o-transform: scale(1.2) translate(-70%, -50%) rotate(30deg);
+    }
+
+    50% {
+        transform: scale(.9) translate(-50%, -50%) rotate(0deg);
+        -webkit-transform: scale(.9) translate(-50%, -50%) rotate(0deg);
+        -moz-transform: scale(.9) translate(-50%, -50%) rotate(0deg);
+        -ms-transform: scale(.9) translate(-50%, -50%) rotate(0deg);
+        -o-transform: scale(.9) translate(-50%, -50%) rotate(0deg);
+    }
+
+    75% {
+        transform: scale(1.2) translate(-20%, -25%) rotate(-30deg);
+        -webkit-transform: scale(1.2) translate(-20%, -25%) rotate(-30deg);
+        -moz-transform: scale(1.2) translate(-20%, -25%) rotate(-30deg);
+        -ms-transform: scale(1.2) translate(-20%, -25%) rotate(-30deg);
+        -o-transform: scale(1.2) translate(-20%, -25%) rotate(-30deg);
+    }
+
+        100% {
+        transform: scale(1.8) translate(-50%,-50%) rotate(0deg);
+        -webkit-transform: scale(1.8) translate(-50%,-50%) rotate(0deg);
+        -moz-transform: scale(1.8) translate(-50%,-50%) rotate(0deg);
+        -ms-transform: scale(1.8) translate(-50%,-50%) rotate(0deg);
+        -o-transform: scale(1.8) translate(-50%,-50%) rotate(0deg);
+    }
+}
+
+
+@keyframes fly {
+	0% {
+		transform: scale(1.8) translate(-50%, -50%) rotate(0deg);
+		-webkit-transform: scale(1.8) translate(-50%, -50%) rotate(0deg);
+		-moz-transform: scale(1.8) translate(-50%, -50%) rotate(0deg);
+		-ms-transform: scale(1.8) translate(-50%, -50%) rotate(0deg);
+		-o-transform: scale(1.8) translate(-50%, -50%) rotate(0deg);
+}
+
+    25% {
+        transform: scale(1.2) translate(-70%, -50%) rotate(30deg);
+        -webkit-transform: scale(1.2) translate(-70%, -50%) rotate(30deg);
+        -moz-transform: scale(1.2) translate(-70%, -50%) rotate(30deg);
+        -ms-transform: scale(1.2) translate(-70%, -50%) rotate(30deg);
+        -o-transform: scale(1.2) translate(-70%, -50%) rotate(30deg);
+    }
+
+    50% {
+        transform: scale(.9) translate(-50%, -50%) rotate(0deg);
+        -webkit-transform: scale(.9) translate(-50%, -50%) rotate(0deg);
+        -moz-transform: scale(.9) translate(-50%, -50%) rotate(0deg);
+        -ms-transform: scale(.9) translate(-50%, -50%) rotate(0deg);
+        -o-transform: scale(.9) translate(-50%, -50%) rotate(0deg);
+    }
+
+    75% {
+        transform: scale(1.2) translate(-20%, -25%) rotate(-30deg);
+        -webkit-transform: scale(1.2) translate(-20%, -25%) rotate(-30deg);
+        -moz-transform: scale(1.2) translate(-20%, -25%) rotate(-30deg);
+        -ms-transform: scale(1.2) translate(-20%, -25%) rotate(-30deg);
+        -o-transform: scale(1.2) translate(-20%, -25%) rotate(-30deg);
+    }
+
+        100% {
+        transform: scale(1.8) translate(-50%,-50%) rotate(0deg);
+        -webkit-transform: scale(1.8) translate(-50%,-50%) rotate(0deg);
+        -moz-transform: scale(1.8) translate(-50%,-50%) rotate(0deg);
+        -ms-transform: scale(1.8) translate(-50%,-50%) rotate(0deg);
+        -o-transform: scale(1.8) translate(-50%,-50%) rotate(0deg);
+    }
+}
